@@ -3,15 +3,19 @@
 LIORA is an AI-powered, adaptive, memory-aware learning assistant using Endee Vector DB.
 
 ## Current Project Status
-- Phase 0 (Technical Spikes, Environment Setup, Repository Foundation, and Evidence Collection) is currently in progress.
+- Phase 0 (Foundation & Spikes) is complete.
+- Phase 1 (Core Implementation) is in progress. The initial UI shell has been built.
 
 ## Architecture Status
 - Architecture follows the approved LIORA blueprint.
-- We are currently verifying assumptions regarding the database (PostgreSQL), vector store (Endee), LLM provider (Groq), UI (Streamlit), and mascot.
+- PostgreSQL connectivity was verified.
+- Groq connectivity was verified.
+- Endee Python API/client contract was investigated.
+- Endee runtime/cloud access remains pending because workspace access is unresolved.
 
 ## Technology Stack
 - **Python:** 3.12+
-- **Vector Database:** Endee Vector DB
+- **Vector Database:** Endee Vector DB (Cloud/Remote)
 - **Relational Database:** PostgreSQL 16
 - **LLM Provider:** Groq
 - **UI Framework:** Streamlit
@@ -27,18 +31,18 @@ LIORA is an AI-powered, adaptive, memory-aware learning assistant using Endee Ve
    ```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt # Or poetry install
+   pip install . # or pip install <requirements>
    ```
 4. Copy `.env.example` to `.env` and fill in secrets.
-5. (Docker is currently required for PostgreSQL, but note that Docker is not available in the current environment natively.)
 
-## Open Questions / Assumptions (Phase 0)
-- Can Endee be run reliably for local development?
-- What is the exact Endee API/client contract?
-- Can we safely isolate data by user/tenant in Endee?
-- Which embedding model works best for Liora's documents?
-- Which Streamlit authentication approach should we use?
-- Can we implement the Liora mascot interaction technically in Streamlit?
+## Running the Application
+To run the Liora Streamlit application locally:
+```bash
+streamlit run app/ui/main.py
+```
 
-## Running Phase 0 Experiments
-Experiments are located in the `experiments/` directory and can be executed as standalone scripts or via pytest in the `tests/` directory once set up.
+## Running Tests
+To run the test suite:
+```bash
+python -m pytest tests/
+```
